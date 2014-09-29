@@ -10,3 +10,9 @@
 /Users/rasmus/Projects/SharpSocket/SocketServer/obj/Debug/SocketServer.dll
 /Users/rasmus/Projects/SharpSocket/SocketServer/obj/Debug/SocketServer.dll.mdb
 /Users/rasmus/Projects/SharpSocket/SocketServer/bin/Debug/log4net.dll
+/Users/rasmus/Development/mono/httpserver/SocketServer/SocketServer/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/rasmus/Development/mono/httpserver/SocketServer/SocketServer/bin/Debug/SocketServer.dll.mdb
+/Users/rasmus/Development/mono/httpserver/SocketServer/SocketServer/bin/Debug/SocketServer.dll
+/Users/rasmus/Development/mono/httpserver/SocketServer/SocketServer/obj/Debug/SocketServer.dll
+/Users/rasmus/Development/mono/httpserver/SocketServer/SocketServer/obj/Debug/SocketServer.dll.mdb
+/Users/rasmus/Development/mono/httpserver/SocketServer/SocketServer/bin/Debug/log4net.dll

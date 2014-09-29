@@ -1,5 +1,5 @@
 #User Specific
-*.userprefs
+*.userprefs*
 *.usertasks
 
 #Mono Project Files
