@@ -1,0 +1,12 @@
+/Users/rasmus/Projects/CSharpSocket/SocketServer/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/rasmus/Projects/CSharpSocket/SocketServer/bin/Debug/SocketServer.dll.mdb
+/Users/rasmus/Projects/CSharpSocket/SocketServer/bin/Debug/SocketServer.dll
+/Users/rasmus/Projects/CSharpSocket/SocketServer/obj/Debug/SocketServer.dll
+/Users/rasmus/Projects/CSharpSocket/SocketServer/obj/Debug/SocketServer.dll.mdb
+/Users/rasmus/Projects/CSharpSocket/SocketServer/bin/Debug/log4net.dll
+/Users/rasmus/Projects/SharpSocket/SocketServer/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/rasmus/Projects/SharpSocket/SocketServer/bin/Debug/SocketServer.dll.mdb
+/Users/rasmus/Projects/SharpSocket/SocketServer/bin/Debug/SocketServer.dll
+/Users/rasmus/Projects/SharpSocket/SocketServer/obj/Debug/SocketServer.dll
+/Users/rasmus/Projects/SharpSocket/SocketServer/obj/Debug/SocketServer.dll.mdb
+/Users/rasmus/Projects/SharpSocket/SocketServer/bin/Debug/log4net.dll
