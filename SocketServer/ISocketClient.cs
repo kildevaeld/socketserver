@@ -14,10 +14,14 @@ namespace SocketServer
 		object Data { get; set; }
 
 		void Close();
-		Task<int> SendAsync (byte[] data, int len);
-		Task<byte[]> ReadAsync();
 		int Send(byte[] data, int len);
 		int Read();
+		NetworkStream GetStream ();
+	}
+
+	public interface IAsyncSocketClient : ISocketClient {
+		Task<int> SendAsync (byte[] data, int len);
+		Task<byte[]> ReadAsync();
 	}
 }
 

@@ -9,21 +9,23 @@ namespace SocketServer.Handlers
 
 		public override void Initialize(ISocketClient client) {
 
+			var c = client as IAsyncSocketClient;
+
 			var message = Encoding.ASCII.GetBytes ("New client connected!");
 
 			var b = Encoding.ASCII.GetBytes ("Please enter your name: ");
-			var task = client.
+			var task = c.
 				SendAsync (b, b.Length);
 
 			task.ContinueWith (x => {
-				return client.ReadAsync().Result;
+				return c.ReadAsync().Result;
 
 			}).ContinueWith( x => {
 				client.Data = Encoding.ASCII.GetString(x.Result);
 
 				var welcome_message = Encoding.ASCII.GetBytes("Welcome " + client.Data);
 
-				return client.SendAsync(welcome_message,welcome_message.Length).Result;
+				return c.SendAsync(welcome_message,welcome_message.Length).Result;
 
 			}).ContinueWith( r => {
 				var welcome_message = Encoding.ASCII.GetBytes("Welcome " + client.Data);

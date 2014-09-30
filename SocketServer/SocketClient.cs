@@ -13,11 +13,10 @@ namespace SocketServer
 	}
 
 	public class 
-	SocketClient : ISocketClient
+	SocketClient : IAsyncSocketClient
 	{
 
 		public event EventHandler<SocketEventArgs> OnClose;
-		//public event EventHandler<SocketEventArgs> OnRead;
 
 		public const int BufferSize = 1024;
 
@@ -75,6 +74,10 @@ namespace SocketServer
 
 		public int Read() {
 			return Socket.Receive (Buffer);
+		}
+
+		public NetworkStream GetStream() {
+			return new NetworkStream (Socket);
 		}
 
 		public override string ToString ()
