@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Collections.Concurrent;
 
 using System.Linq;
-using log4net;
+
 
 namespace SocketServer.Handlers
 {
@@ -15,11 +15,11 @@ namespace SocketServer.Handlers
 	public abstract class SocketServerHandler : ISocketServerHandler, IDisposable
 	{
 
-		protected static readonly ILog log = LogManager.GetLogger (typeof(SocketServerHandler));
+		protected static readonly ILog log = new Logger();
 
 		protected object _lock;
 		protected List<ISocketClient> _clients;
-		//protected ConcurrentBag<ISocketClient> _clients;
+
 		public SocketServerHandler ()
 		{
 			_clients = new List<ISocketClient> ();
@@ -27,9 +27,9 @@ namespace SocketServer.Handlers
 		}
 
 		public virtual void Initialize(ISocketClient client) {
-			//_clients.Add (client);
+
 			AddClient (client);
-			client.OnClose += (object sender, SocketEventArgs e) => {
+			client.Closed += (object sender, SocketEventArgs e) => {
 				ISocketClient _client = (ISocketClient)sender;
 				Console.WriteLine("Client disconnected: {0}", _client.ToString());
 				RemoveClient(_client);
@@ -57,8 +57,8 @@ namespace SocketServer.Handlers
 					if (ret) {
 						this.Read (client);
 					} else {
-						this.Close(client);
 
+						client.Close();
 					}
 				// If bytesRead is zero, the socket i probbaly disconnected.
 				} else {

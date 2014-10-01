@@ -6,13 +6,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using log4net;
 
 namespace SocketServer {
 
 	public class Server {
 
-		private static readonly ILog log = LogManager.GetLogger (typeof(Server));
+		private static ILog _logger = new Logger();
+		public static ILog Log { get { return _logger; } }
+		public static void SetLogger(ILog logger) {
+			_logger = logger;
+		}
+			
 		// Thread signal.
 		public static ManualResetEvent allDone = new ManualResetEvent(false);
 
@@ -43,14 +47,14 @@ namespace SocketServer {
 				_server.Bind(endPoint);
 				_server.Listen(100);
 
-				log.InfoFormat ("Listening on port: {0}", endPoint);
+				Log.InfoFormat ("Listening on port: {0}", endPoint);
 
 				while (true) {
 					// Set the event to nonsignaled state.
 					allDone.Reset();
 
 					// Start an asynchronous socket to listen for connections.
-					log.Info("Waiting for a connection...");
+					Log.Info("Waiting for client connection");
 					_server.BeginAccept(new AsyncCallback(AcceptCallback), _server );
 
 					// Wait until a connection is made before continuing.
@@ -58,12 +62,12 @@ namespace SocketServer {
 				}
 
 			} catch (Exception e) {
-				log.Error(e.ToString());
+				Log.Error(e.ToString());
 			}
 
 		}
 
-		public void StopListening () {
+		public void Stop () {
 			_server.Shutdown (SocketShutdown.Both);
 			_server.Close ();
 		}
@@ -79,12 +83,18 @@ namespace SocketServer {
 			// Create the state object.
 			SocketClient client = new SocketClient(socket);
 
-			log.DebugFormat ("Socket connected: {0}", client.ToString());
+			Log.DebugFormat ("Client socket connected: {0}", client.ToString());
+
+			if (Log.IsDebugEnabled) {
+				client.Closed += (object sender, SocketEventArgs e) => {
+					Log.DebugFormat("Client socket disconnected: {0}", client);
+				};
+			}
 
 			try {
 				this.Handler.Initialize (client);
 			} catch (SocketException e) {
-				log.ErrorFormat ("Error {0}", e.ToString ());
+				Log.ErrorFormat ("Error {0}", e.ToString ());
 			}
 		}
 	}

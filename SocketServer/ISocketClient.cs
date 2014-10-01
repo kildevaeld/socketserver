@@ -6,7 +6,7 @@ namespace SocketServer
 {
 	public interface ISocketClient
 	{
-		event EventHandler<SocketEventArgs> OnClose;
+		event EventHandler<SocketEventArgs> Closed;
 
 		byte[] Buffer { get; set; }
 		Guid UUID { get; }
@@ -18,7 +18,7 @@ namespace SocketServer
 		Task<byte[]> ReadAsync();
 		int Send(byte[] data, int len);
 		int Read();
-		NetworkStream GetStream ();
+		NetworkStream GetStream (bool own);
 	}
 
 	public interface IAsyncSocketClient : ISocketClient {

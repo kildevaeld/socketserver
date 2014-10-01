@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
-using log4net;
+
 using System.Text;
 
 namespace SocketServer.Handlers

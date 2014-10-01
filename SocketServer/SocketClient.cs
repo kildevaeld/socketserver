@@ -12,11 +12,10 @@ namespace SocketServer
 
 	}
 
-	public class 
-	SocketClient : IAsyncSocketClient
+	public class SocketClient : IAsyncSocketClient
 	{
 
-		public event EventHandler<SocketEventArgs> OnClose;
+		public event EventHandler<SocketEventArgs> Closed;
 
 		public const int BufferSize = 1024;
 
@@ -35,8 +34,11 @@ namespace SocketServer
 		}
 
 		public void Close () {
-			var ev = new SocketEventArgs(this);
-			//OnClose (this, ev);
+			if (Closed != null) {
+				var ev = new SocketEventArgs(this);
+				Closed (this, ev);
+			}
+
 			try {
 				Socket.Shutdown(SocketShutdown.Send);
 			} catch { }
@@ -69,15 +71,17 @@ namespace SocketServer
 		}
 
 		public int Send(byte[] data, int len) {
-			return Socket.Send (data);
+			int ret = Socket.Send (data);
+			Server.Log.DebugFormat("Sent {0} bytes to client: {1}",ret,this);
+			return ret;
 		}
 
 		public int Read() {
 			return Socket.Receive (Buffer);
 		}
 
-		public NetworkStream GetStream() {
-			return new NetworkStream (Socket);
+		public NetworkStream GetStream(bool own = false) {
+			return new NetworkStream (Socket, own);
 		}
 
 		public override string ToString ()
