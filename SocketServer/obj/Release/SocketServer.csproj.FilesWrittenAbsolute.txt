@@ -1,6 +1,0 @@
-/Users/rasmus/Projects/CSharpSocket/SocketServer/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/rasmus/Projects/CSharpSocket/SocketServer/bin/Release/SocketServer.dll.mdb
-/Users/rasmus/Projects/CSharpSocket/SocketServer/bin/Release/SocketServer.dll
-/Users/rasmus/Projects/CSharpSocket/SocketServer/obj/Release/SocketServer.dll
-/Users/rasmus/Projects/CSharpSocket/SocketServer/obj/Release/SocketServer.dll.mdb
-/Users/rasmus/Projects/CSharpSocket/SocketServer/bin/Release/log4net.dll
