@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 
 using System.Text;
-
+using SocketServer.Logging;
 namespace SocketServer.Handlers
 {
 	public class SocketEchoHandler : SocketServerHandler

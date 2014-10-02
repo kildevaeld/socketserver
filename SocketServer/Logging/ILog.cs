@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SocketServer
+namespace SocketServer.Logging
 {
 
 	public enum LogLevels

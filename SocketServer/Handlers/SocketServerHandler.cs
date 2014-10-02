@@ -8,8 +8,8 @@ using System.Collections.Concurrent;
 
 using System.Linq;
 
-
-namespace SocketServer.Handlers
+using SocketServer.Logging;
+namespace SocketServer
 {
 
 	public abstract class SocketServerHandler : ISocketServerHandler, IDisposable
