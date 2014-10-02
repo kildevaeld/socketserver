@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
+using SocketServer.Logging;
 namespace SocketServer {
 
 	public class Server {
