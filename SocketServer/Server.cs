@@ -56,7 +56,6 @@ namespace SocketServer {
 					allDone.Reset();
 
 					// Start an asynchronous socket to listen for connections.
-					Log.Info("Waiting for client connection");
 					_server.BeginAccept(new AsyncCallback(AcceptCallback), _server );
 
 					// Wait until a connection is made before continuing.
