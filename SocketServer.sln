@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketServer", "SocketServe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{000A53EA-6E2F-42D0-B152-AF0A028BAD38}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "libs\Logger\Debug\Logger.csproj", "{C4A5E925-6F4B-4D36-8478-E8D315384619}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{95516852-FA6E-453C-9F60-790D0252B905}.Debug|x86.Build.0 = Debug|Any CPU
 		{95516852-FA6E-453C-9F60-790D0252B905}.Release|x86.ActiveCfg = Release|Any CPU
 		{95516852-FA6E-453C-9F60-790D0252B905}.Release|x86.Build.0 = Release|Any CPU
+		{C4A5E925-6F4B-4D36-8478-E8D315384619}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C4A5E925-6F4B-4D36-8478-E8D315384619}.Debug|x86.Build.0 = Debug|Any CPU
+		{C4A5E925-6F4B-4D36-8478-E8D315384619}.Release|x86.ActiveCfg = Release|Any CPU
+		{C4A5E925-6F4B-4D36-8478-E8D315384619}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Example\Example.csproj

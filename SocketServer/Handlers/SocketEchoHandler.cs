@@ -4,12 +4,14 @@ using System.Net;
 using System.Net.Sockets;
 
 using System.Text;
-using SocketServer.Logging;
+using Debug;
+
 namespace SocketServer.Handlers
 {
 	public class SocketEchoHandler : SocketServerHandler
 	{
 
+		private static ILog log = Debug.Log.Create(typeof(SocketEchoHandler));
 	
 		protected override bool ReadCallback(ISocketClient client, int bytesRead) {
 			var ret = true;
@@ -21,12 +23,12 @@ namespace SocketServer.Handlers
 			} else {
 				this.Send (client, client.Buffer, bytesRead);
 			}
-			
+
 			return ret;
 		}
 		
 		protected override void SendCallback(ISocketClient client, byte[] data, int bytesSend) {
-			log.InfoFormat ("Sent {0} bytes to client: {1}",bytesSend, client);
+			log.Info("Sent {0} bytes to client: {1}",bytesSend, client);
 		}
 	}
 }

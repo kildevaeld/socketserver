@@ -39,11 +39,12 @@
     <Compile Include="Handlers\SocketEchoHandler.cs" />
     <Compile Include="Handlers\SocketServerHandler.cs" />
     <Compile Include="Server.cs" />
-    <Compile Include="Logging\ILog.cs" />
-    <Compile Include="Logging\Logger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Logging\" />
+    <ProjectReference Include="..\libs\Logger\Debug\Logger.csproj">
+      <Project>{C4A5E925-6F4B-4D36-8478-E8D315384619}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-using SocketServer.Logging;
+using Debug;
+
 namespace SocketServer {
 
 	public class Server {
 
-		private static ILog _logger = new Logger();
+		private static ILog _logger = Debug.Log.Create (typeof(Server));
 		public static ILog Log { get { return _logger; } }
 		public static void SetLogger(ILog logger) {
 			_logger = logger;
@@ -48,7 +49,7 @@ namespace SocketServer {
 				_server.Bind(endPoint);
 				_server.Listen(100);
 
-				Log.InfoFormat ("Listening on port: {0}", endPoint);
+				Log.Info ("Listening on port: {0}", endPoint);
 
 				while (true) {
 					// Set the event to nonsignaled state.
@@ -84,18 +85,18 @@ namespace SocketServer {
 			// Create the state object.
 			SocketClient client = new SocketClient(socket);
 
-			Log.DebugFormat ("Client socket connected: {0}", client.ToString());
+			Log.Info ("Client socket connected: {0}", client.ToString());
 
-			if (Log.IsDebugEnabled) {
-				client.Closed += (object sender, SocketEventArgs e) => {
-					Log.DebugFormat("Client socket disconnected: {0}", client);
-				};
-			}
+
+			client.Closed += (object sender, SocketEventArgs e) => {
+				Log.Info("Client socket disconnected: {0}", client);
+			};
+
 
 			try {
 				this.Handler.Initialize (client);
 			} catch (SocketException e) {
-				Log.ErrorFormat ("Error {0}", e.ToString ());
+				Log.Error ("Error {0}", e.ToString ());
 			}
 		}
 	}

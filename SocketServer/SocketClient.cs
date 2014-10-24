@@ -72,7 +72,7 @@ namespace SocketServer
 
 		public int Send(byte[] data, int len) {
 			int ret = Socket.Send (data);
-			Server.Log.DebugFormat("Sent {0} bytes to client: {1}",ret,this);
+			Server.Log.Debug("Sent {0} bytes to client: {1}",ret,this);
 			return ret;
 		}
 

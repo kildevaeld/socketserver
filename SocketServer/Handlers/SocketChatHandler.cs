@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Threading.Tasks;
-using SocketServer.Logging;
+
 namespace SocketServer.Handlers
 {
 	public class SocketChatHandler : SocketServerHandler

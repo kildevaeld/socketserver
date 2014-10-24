@@ -8,7 +8,7 @@ using System.Collections.Concurrent;
 
 using System.Linq;
 
-using SocketServer.Logging;
+using Debug;
 
 namespace SocketServer
 {
@@ -16,7 +16,7 @@ namespace SocketServer
 	public abstract class SocketServerHandler : ISocketServerHandler, IDisposable
 	{
 
-		protected static readonly ILog log = new Logger();
+		protected static readonly ILog log = Log.Create(typeof(SocketServerHandler));
 
 		protected object _lock;
 		protected List<ISocketClient> _clients;
