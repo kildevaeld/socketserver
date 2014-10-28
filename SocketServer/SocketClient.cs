@@ -86,8 +86,8 @@ namespace SocketServer
 
 		public override string ToString ()
 		{
-			string soc;
-			if (Socket.Connected)
+			string soc = "";
+			if (Socket.Connected && Socket.RemoteEndPoint != null)
 				soc = Socket.RemoteEndPoint.ToString ();
 			else
 				soc = "Disconnected";
