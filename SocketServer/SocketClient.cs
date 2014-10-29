@@ -87,8 +87,13 @@ namespace SocketServer
 		public override string ToString ()
 		{
 			string soc = "";
-			if (Socket.Connected && Socket.RemoteEndPoint != null)
+
+			if (Socket.Connected)
+				try {
 				soc = Socket.RemoteEndPoint.ToString ();
+			} catch {
+				}
+				
 			else
 				soc = "Disconnected";
 			return string.Format ("[SocketClient: Socket={0}, UUID={1}]", soc, UUID);
